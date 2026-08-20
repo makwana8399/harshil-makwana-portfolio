@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* White & Electric Purple High-Contrast Palette System */
+    --bg: #050508;
+    --bg-elevated: #0F0E17;
+    --text-primary: #FFFFFF;
+    --text-secondary: #C4C2D6;
+    --accent: #A855F7;
+    --accent-hover: #9333EA;
+    --accent-glow: rgba(168, 85, 247, 0.25);
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --border-accent: rgba(168, 85, 247, 0.4);
+
+    /* Legacy Variable Bindings */
+    --obsidian: var(--bg);
+    --basalt: var(--bg-elevated);
+    --slate: rgba(255, 255, 255, 0.1);
+    --hairline: var(--border-subtle);
+    --titanium: var(--text-primary);
+    --ash: var(--text-secondary);
+    --ash-dim: #9E98B9;
+    --aurum: var(--accent);
+    --aurum-deep: #9333EA;
+    --plasma: var(--accent);
+    --plasma-dim: rgba(168, 85, 247, 0.25);
+    --ion: var(--accent);
+
+    /* Radii */
+    --r-sm: 6px;
+    --r-md: 10px;
+    --r-lg: 16px;
+    --r-pill: 999px;
+
+    /* Fonts */
+    --font-display: var(--font-poppins), system-ui, sans-serif;
+    --font-body: var(--font-poppins), system-ui, sans-serif;
+    --font-mono: var(--font-jetbrains-mono), monospace;
+  }
+
+  * {
+    border-color: var(--border-subtle);
+    box-sizing: border-box;
+  }
+
+  html, body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: auto; /* Handled by Lenis */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--accent-glow);
+    color: var(--text-primary);
+  }
+}
+
+/* Accessibility Focus Visible */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Lenis Smooth Scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Typography Utility Classes */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Fluid Typography */
+.text-hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9.5vw, 7.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.text-statement {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5.2vw, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.text-section-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.8vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.text-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.text-body-custom {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 62ch;
+}
+
+/* Signature Kicker Inscription */
+.kicker-inscription {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kicker-inscription::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background-color: var(--accent);
+}
+
+/* Smooth Liquid Glass Utility Class */
+.liquid-glass {
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 12px 36px rgba(0, 0, 0, 0.35);
+}
+
+/* Text Glow Utility */
+.text-glow-accent {
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.3);
+  border-radius: var(--r-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
